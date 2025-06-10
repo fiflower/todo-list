@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     doneBtn.onclick = () => {
       span.classList.toggle('line-through');
       todo.done = !todo.done;
+      saveTodos();
     };
 
     const deleteBtn = document.createElement('button');
@@ -76,11 +77,28 @@ document.addEventListener('DOMContentLoaded', () => {
     return li;
   }
 
+  // localStorage에서 불러오기
+  function loadTodos() {
+    const saved = localStorage.getItem('todos');
+    if (saved) {
+      try {
+        todos = JSON.parse(saved);
+      } catch (e) {
+        todos = [];
+      }
+    }
+  }
+  // localStorage에 저장
+  function saveTodos() {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
+
   function renderTodos() {
     list.innerHTML = '';
     todos.forEach(todo => {
       list.appendChild(createTodoItem(todo));
     });
+    saveTodos();
   }
 
   form.onsubmit = async (e) => {
@@ -143,6 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   // 초기 테마 적용
   setTheme(localStorage.getItem('theme') || 'light');
-
+  loadTodos();
   renderTodos();
 });
