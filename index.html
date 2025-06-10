@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO LIST</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2><span class="emoji">🍓</span>메뉴</h2>
+    <ul>
+      <li><button id="list-view-btn" type="button"><span class="emoji">📋</span>리스트</button></li>
+      <li><button id="calendar-view-btn" type="button"><span class="emoji">📅</span>달력</button></li>
+      <li><button id="timeline-view-btn" type="button"><span class="emoji">⏰</span>타임라인</button></li>
+      <li><button id="theme-toggle" type="button" title="테마 변경"><span class="emoji">🍓</span>테마</button></li>
+    </ul>
+  </div>
+  <main class="board-main">
+    <h1 class="todo-title"><span class="emoji">🍓</span>TODOLIST<span class="emoji">🍰</span></h1>
+    <form id="todo-form" class="card add-card">
+      <input id="todo-input" type="text" placeholder="할 일을 입력하세요" required />
+      <select id="priority-select">
+        <option value="보통">보통</option>
+        <option value="높음">높음</option>
+        <option value="긴급">긴급</option>
+      </select>
+      <input id="memo-input" type="text" placeholder="메모(선택)" />
+      <input id="file-input" type="file" accept="image/*,.pdf,.txt" />
+      <button type="submit"><span class="emoji">🍓</span>추가</button>
+    </form>
+    <div class="card-board">
+      <ul id="todo-list" class="card-list"></ul>
+      <div id="calendar-view" class="card" style="display:none;"></div>
+      <div id="timeline-view" class="card" style="display:none;"></div>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

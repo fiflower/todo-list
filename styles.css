@@ -1,0 +1,303 @@
+body {
+  background: linear-gradient(135deg, #ffe6ec 0%, #ffb6c1 100%);
+  min-height: 100vh;
+  display: flex;
+  font-family: 'Segoe UI', 'Apple SD Gothic Neo', Arial, sans-serif;
+}
+.sidebar {
+  width: 220px;
+  background: #fff0f6;
+  color: #d72660;
+  min-height: 100vh;
+  padding: 2rem 1rem 1rem 1.5rem;
+  box-shadow: 2px 0 16px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-top-right-radius: 32px;
+  border-bottom-right-radius: 32px;
+  border-right: 4px solid #ff6f91;
+}
+.sidebar h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #ff4f79;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.sidebar li button {
+  width: 100%;
+  background: #fff6fa;
+  color: #ff4f79;
+  border: 2px solid #ffb6c1;
+  border-radius: 12px;
+  padding: 0.8rem 0;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(255, 111, 145, 0.08);
+}
+.sidebar li button:hover {
+  background: #ffb6c1;
+  border: 2px solid #ff6f91;
+}
+#theme-toggle {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ff4f79;
+  margin-top: 2rem;
+}
+
+.board-main {
+  flex: 1;
+  padding: 2.5rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+.todo-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #d72660;
+  text-align: center;
+  width: 100%;
+  font-family: 'Segoe UI', 'Apple SD Gothic Neo', 'Comic Sans MS', 'cursive', Arial, sans-serif;
+  letter-spacing: 0.05em;
+  text-shadow: 1px 2px 0 #fffbe7, 0 2px 8px #ffe6ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+.card-board {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.card-list {
+  width: 350px;
+  min-height: 400px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.card {
+  background: #fff6fa;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(255, 111, 145, 0.12);
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+  min-width: 320px;
+  max-width: 400px;
+}
+.add-card {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.add-card input[type="text"], .add-card select, .add-card input[type="file"] {
+  background: #fff0f6;
+  border: 1.5px solid #ffb6c1;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+.add-card button[type="submit"] {
+  background: #ff4f79;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(255, 111, 145, 0.08);
+}
+.add-card button[type="submit"]:hover {
+  background: #ff6f91;
+}
+.add-card input[type="file"]::-webkit-file-upload-button {
+  background: #fff;
+  color: #ff4f79;
+  border: 1.5px solid #ffb6c1;
+  border-radius: 8px;
+  padding: 0.4rem 1.1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.add-card input[type="file"]::file-selector-button {
+  background: #fff;
+  color: #ff4f79;
+  border: 1.5px solid #ffb6c1;
+  border-radius: 8px;
+  padding: 0.4rem 1.1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.add-card input[type="file"]:hover::-webkit-file-upload-button,
+.add-card input[type="file"]:hover::file-selector-button {
+  background: #ffb6c1;
+}
+
+/* 카드 내 리스트 스타일 유지 */
+#todo-list li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #fff0f6;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.7rem;
+  flex-direction: column;
+}
+#todo-list li span {
+  color: #d72660;
+  font-size: 1rem;
+  word-break: break-all;
+}
+#todo-list li span.line-through {
+  color: #ffb6c1;
+}
+.todo-btns {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.todo-btn {
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+}
+.todo-btn.done:hover {
+  background: #d1fae5;
+}
+.todo-btn.delete:hover {
+  background: #fee2e2;
+}
+.todo-btn svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+.todo-btn.done svg {
+  color: #22c55e;
+}
+.todo-btn.delete svg {
+  color: #ef4444;
+}
+
+/* 우선순위/긴급도, 메모, 첨부파일, 뷰, 다크모드 등 기존 스타일 유지 */
+.priority-badge {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.1em 0.6em;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: bold;
+  color: #fff;
+}
+.priority-보통 .priority-badge { background: #ffb6c1; }
+.priority-높음 .priority-badge { background: #ff4f79; }
+.priority-긴급 .priority-badge { background: #d72660; }
+.todo-memo {
+  color: #d72660;
+}
+.todo-file {
+  margin-top: 0.2em;
+}
+.todo-file a {
+  color: #ff4f79;
+  text-decoration: underline;
+  font-size: 0.9em;
+}
+
+/* 다크모드 카드/사이드바 */
+body[data-theme='dark'] {
+  background: linear-gradient(135deg, #d72660 0%, #ffb6c1 100%);
+}
+body[data-theme='dark'] .sidebar {
+  background: #ffb6c1;
+  color: #fff;
+  box-shadow: 2px 0 16px rgba(215,38,96,0.18);
+}
+body[data-theme='dark'] .sidebar h2,
+body[data-theme='dark'] #theme-toggle {
+  color: #fff;
+}
+body[data-theme='dark'] .sidebar li button {
+  background: #fff0f6;
+  color: #d72660;
+  border: 2px solid #ff6f91;
+}
+body[data-theme='dark'] .sidebar li button:hover {
+  background: #ff6f91;
+  color: #fff;
+}
+body[data-theme='dark'] .board-main {
+  background: #23232b;
+  color: #f3f4f6;
+}
+body[data-theme='dark'] .card {
+  background: #ffb6c1;
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(215,38,96,0.18);
+}
+body[data-theme='dark'] .todo-title {
+  color: #fff;
+  text-shadow: 1px 2px 0 #d72660, 0 2px 8px #ffb6c1;
+}
+body[data-theme='dark'] .add-card input,
+body[data-theme='dark'] .add-card select {
+  background: #fff0f6;
+  color: #d72660;
+  border-color: #ff6f91;
+}
+body[data-theme='dark'] #todo-list li {
+  background: #ffb6c1;
+  color: #fff;
+}
+body[data-theme='dark'] .priority-badge {
+  opacity: 0.95;
+}
+body[data-theme='dark'] .todo-memo {
+  color: #fff;
+}
+body[data-theme='dark'] .todo-file a {
+  color: #fff;
+}
+
+/* 이모지 스타일 강조 */
+.emoji {
+  font-size: 1.5em;
+  margin-right: 0.3em;
+}
